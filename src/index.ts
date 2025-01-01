@@ -20,6 +20,11 @@ let a = false;
     width: 100,
     height: 100,
   });
+  globalThis.__PIXI_APP__ = app;
+// app.renderer.resize(50, 100);
+//   app.resize()
+// app.screen.width = 50;
+// app.resize()
 
   // Append the application canvas to the document body
     // document.body.appendChild(canvas);
@@ -32,14 +37,14 @@ let a = false;
   const texture = await Assets.load("https://pixijs.com/assets/bunny.png");
 
   // Create a 5x5 grid of bunnies
-  for (let i = 0; i < 25; i++) {
+//   for (let i = 0; i < 25; i++) {
     const bunny = new Sprite(texture);
 
     bunny.anchor.set(0.5);
-    bunny.x = (i % 5) * 40;
-    bunny.y = Math.floor(i / 5) * 40;
+    // bunny.x = (i % 5) * 40;
+    // bunny.y = Math.floor(i / 5) * 40;
     container.addChild(bunny);
-  }
+//   }
 
   // Move container to the center
   container.x = app.screen.width / 2;
@@ -54,10 +59,8 @@ let a = false;
   app.ticker.add((time) => {
     // Rotate the container!
     // * use delta to create frame-independent transform *
-    container.rotation -= 0.01 * time.deltaTime;
+    // container.rotation -= 0.01 * time.deltaTime;
   });
-  console.log("ready")
-  a=true;
 })();
 
 import * as THREE from "three";
@@ -86,8 +89,8 @@ document.body.appendChild(renderer.domElement);
 // animation
 
 function animate(time) {
-  mesh.rotation.x = time / 2000;
-  mesh.rotation.y = time / 1000;
+  mesh.rotation.x = time / 20000;
+  mesh.rotation.y = time / 10000;
 
   if (!material.map) {
 
@@ -96,6 +99,7 @@ function animate(time) {
     }
   if (material.map)
   material.map.needsUpdate = true;
+// console.log(canvasTex
 
   renderer.render(scene, camera);
 }
