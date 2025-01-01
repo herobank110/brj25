@@ -3,6 +3,10 @@ import { Application, Assets, Container, Sprite } from "pixi.js";
 // This example is the based on basic/container, but using OffscreenCanvas.
 
 const canvas = document.createElement("canvas");
+canvas.width = 100;
+canvas.height = 100;
+const canvasTex = new THREE.CanvasTexture(canvas);
+let a = false;
 // const view = canvas.transferControlToOffscreen();
 
 (async () => {
@@ -18,7 +22,7 @@ const canvas = document.createElement("canvas");
   });
 
   // Append the application canvas to the document body
-  //   document.body.appendChild(canvas);
+    // document.body.appendChild(canvas);
 
   const container = new Container();
 
@@ -45,12 +49,15 @@ const canvas = document.createElement("canvas");
   container.pivot.x = container.width / 2;
   container.pivot.y = container.height / 2;
 
+
   // Listen for animate update
   app.ticker.add((time) => {
     // Rotate the container!
     // * use delta to create frame-independent transform *
     container.rotation -= 0.01 * time.deltaTime;
   });
+  console.log("ready")
+  a=true;
 })();
 
 import * as THREE from "three";
@@ -82,7 +89,12 @@ function animate(time) {
   mesh.rotation.x = time / 2000;
   mesh.rotation.y = time / 1000;
 
-  if (!material.map) material.map = new THREE.CanvasTexture(canvas);
+  if (!material.map) {
+
+   material.map = canvasTex;//new THREE.CanvasTexture(canvas);
+   console.log(material.map);
+    }
+  if (material.map)
   material.map.needsUpdate = true;
 
   renderer.render(scene, camera);
