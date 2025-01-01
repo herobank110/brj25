@@ -51,15 +51,15 @@ let a = false;
   container.y = app.screen.height / 2;
 
   // Center bunny sprite in local container coordinates
-  container.pivot.x = container.width / 2;
-  container.pivot.y = container.height / 2;
+//   container.pivot.x = container.width / 2;
+//   container.pivot.y = container.height / 2;
 
 
   // Listen for animate update
   app.ticker.add((time) => {
     // Rotate the container!
     // * use delta to create frame-independent transform *
-    // container.rotation -= 0.01 * time.deltaTime;
+    container.rotation -= 0.01 * time.deltaTime;
   });
 })();
 
