@@ -9,6 +9,9 @@
     "build": "parcel build src/index.html"
   },
   "dependencies": {
-    "parcel": "^2.13.3"
+    "@types/three": "^0.171.0",
+    "parcel": "^2.13.3",
+    "pixi.js": "^8.6.6",
+    "three": "^0.172.0"
   }
 }
