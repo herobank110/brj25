@@ -13,5 +13,8 @@
     "parcel": "^2.13.3",
     "pixi.js": "^8.6.6",
     "three": "^0.172.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.13.3"
   }
 }
